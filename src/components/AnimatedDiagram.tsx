@@ -61,8 +61,8 @@ function DiagramScene() {
             <meshStandardMaterial color="#ffffff" roughness={0.2} metalness={0.1} />
           </RoundedBox>
           <Html position={[0, 0, 0.26]} center transform zIndexRange={[100, 0]}>
-            <div className="flex flex-col items-center p-2">
-              <div className="w-12 h-12 bg-brand-light rounded-full flex items-center justify-center text-brand-navy mb-2 shadow-sm border border-brand-blue/10">
+            <div style={{ width: '200px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }} className="pointer-events-none">
+              <div className="w-12 h-12 mx-auto bg-brand-light rounded-full flex items-center justify-center text-brand-navy mb-2 shadow-sm border border-brand-blue/10">
                 <Warehouse className="w-6 h-6" />
               </div>
               <span className="font-bold text-sm text-brand-navy whitespace-nowrap">OneTouch DC</span>
@@ -77,8 +77,8 @@ function DiagramScene() {
             <meshStandardMaterial color="#ffffff" roughness={0.2} metalness={0.1} />
           </RoundedBox>
           <Html position={[0, 0, 0.26]} center transform zIndexRange={[100, 0]}>
-            <div className="flex flex-col items-center p-2">
-              <div className="w-12 h-12 bg-brand-blue rounded-full flex items-center justify-center text-white mb-2 shadow-sm">
+            <div style={{ width: '200px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }} className="pointer-events-none">
+              <div className="w-12 h-12 mx-auto bg-brand-blue rounded-full flex items-center justify-center text-white mb-2 shadow-sm">
                 <Store className="w-6 h-6" />
               </div>
               <span className="font-bold text-sm text-brand-navy whitespace-nowrap">OneTouch Retail</span>
@@ -93,8 +93,8 @@ function DiagramScene() {
             <meshStandardMaterial color="#ffffff" roughness={0.2} metalness={0.1} />
           </RoundedBox>
           <Html position={[0, 0, 0.26]} center transform zIndexRange={[100, 0]}>
-            <div className="flex flex-col items-center p-2">
-              <div className="w-12 h-12 bg-brand-light rounded-full flex items-center justify-center text-brand-navy mb-2 shadow-sm border border-brand-blue/10">
+            <div style={{ width: '200px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }} className="pointer-events-none">
+              <div className="w-12 h-12 mx-auto bg-brand-light rounded-full flex items-center justify-center text-brand-navy mb-2 shadow-sm border border-brand-blue/10">
                 <Calculator className="w-6 h-6" />
               </div>
               <span className="font-bold text-sm text-brand-navy whitespace-nowrap">OneTouch Accounting</span>
