@@ -1,20 +1,44 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 
 export default function PricingPage() {
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+  };
+  
+  const fadeUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  };
+
   return (
-    <div className="flex flex-col w-full py-20 px-6">
+    <div className="flex flex-col w-full py-20 px-6 overflow-hidden">
       
-      <div className="max-w-[800px] mx-auto text-center mb-16">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="max-w-[800px] mx-auto text-center mb-16"
+      >
         <h1 className="text-4xl md:text-5xl font-bold text-brand-navy mb-6">Simple, custom pricing</h1>
         <p className="text-lg text-text-muted">
           Every retail operation is unique. We price based on the modules you need and the scale of your business, ensuring you never pay for features you don&apos;t use.
         </p>
-      </div>
+      </motion.div>
 
       <div className="max-w-[1000px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
         
-        <div className="bg-white p-8 rounded-2xl border border-brand-light shadow-sm">
+        <motion.div 
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="bg-white p-8 rounded-2xl border border-brand-light shadow-sm"
+        >
           <h2 className="text-2xl font-bold text-brand-navy mb-2">Get a Custom Quote</h2>
           <p className="text-text-muted mb-8">Tell us a bit about your setup and we&apos;ll get back to you with a tailored pricing plan within 24 hours.</p>
           
@@ -54,16 +78,28 @@ export default function PricingPage() {
               </div>
             </div>
 
-            <button type="submit" className="w-full py-3 mt-4 bg-brand-blue text-white font-medium rounded-lg hover:bg-brand-navy transition-colors">
+            <button type="submit" className="w-full py-3 mt-4 bg-brand-blue text-white font-medium rounded-lg hover:bg-brand-navy transition-colors shadow-sm">
               Request Quote
             </button>
           </form>
-        </div>
+        </motion.div>
 
-        <div className="bg-brand-bg p-8 rounded-2xl border border-brand-light h-full">
+        <motion.div 
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="bg-brand-bg p-8 rounded-2xl border border-brand-light h-full"
+        >
           <h3 className="text-xl font-bold text-brand-navy mb-6">What&apos;s included in every plan</h3>
           
-          <ul className="space-y-4">
+          <motion.ul 
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="space-y-4"
+          >
             {[
               "Cloud hosting with 99.9% uptime guarantee",
               "Unlimited standard support via email and portal",
@@ -72,21 +108,27 @@ export default function PricingPage() {
               "Role-based access controls for unlimited users",
               "Daily automated backups"
             ].map((feature, i) => (
-              <li key={i} className="flex gap-3 text-text-muted">
+              <motion.li key={i} variants={fadeUp} className="flex gap-3 text-text-muted">
                 <div className="mt-1 w-5 h-5 rounded-full bg-brand-success/20 flex items-center justify-center text-brand-success shrink-0">
                   <Check className="w-3 h-3" />
                 </div>
                 <span>{feature}</span>
-              </li>
+              </motion.li>
             ))}
-          </ul>
+          </motion.ul>
 
-          <div className="mt-12 p-6 bg-white rounded-xl border border-brand-light">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.8 }}
+            className="mt-12 p-6 bg-white rounded-xl border border-brand-light"
+          >
             <h4 className="font-bold text-brand-navy mb-2">Need migration assistance?</h4>
             <p className="text-sm text-text-muted mb-4">Our onboarding team can help migrate your existing stock data and chart of accounts.</p>
             <Link href="/contact" className="text-brand-blue text-sm font-medium hover:underline">Speak to our onboarding team &rarr;</Link>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
       </div>
     </div>

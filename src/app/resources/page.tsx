@@ -1,24 +1,53 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 export default function ResourcesPage() {
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+  };
+  
+  const fadeUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  };
+
   return (
-    <div className="flex flex-col w-full py-20 px-6 max-w-[800px] mx-auto">
+    <div className="flex flex-col w-full py-20 px-6 max-w-[800px] mx-auto overflow-hidden">
       
-      <div className="text-center mb-16">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-center mb-16"
+      >
         <h1 className="text-4xl font-bold text-brand-navy mb-4">Help Center & FAQ</h1>
         <p className="text-lg text-text-muted">
           Find answers to common questions about OneTouch Solutions.
         </p>
-      </div>
+      </motion.div>
 
-      <div className="space-y-6">
+      <motion.div 
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        className="space-y-6"
+      >
         
         {faqs.map((faq, index) => (
-          <div key={index} className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+          <motion.div 
+            key={index} 
+            variants={fadeUp} 
+            className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+          >
             <h3 className="text-lg font-bold text-brand-navy mb-2">{faq.question}</h3>
             <p className="text-text-muted leading-relaxed">{faq.answer}</p>
-          </div>
+          </motion.div>
         ))}
 
-      </div>
+      </motion.div>
 
     </div>
   );
