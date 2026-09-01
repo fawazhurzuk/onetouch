@@ -13,14 +13,17 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-gray-100">
       <div className="max-w-[1200px] mx-auto px-6 h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3">
-          <div className="relative w-16 h-16 flex-shrink-0">
+          <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border border-gray-100 bg-white">
             <Image 
               src="/new-logo.jpg" 
               alt="OneTouch Logo" 
               fill 
-              className="object-contain"
+              className="object-cover scale-[1.35] -translate-y-[8%]"
             />
           </div>
+          <span className="font-bold text-xl text-brand-navy tracking-tight hidden sm:block">
+            OneTouch Solutions
+          </span>
         </Link>
 
         {/* Desktop Nav */}
